@@ -10,11 +10,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: brachi-wernick/github-actions/@${GITHUB_REF}
     - name: Run a one-line script
       run: echo Hello, world!
     - name: checkout PR 
-      run: git fetch origin pull/$GITHUB_REF/head:PR
+      run: git fetch origin pull/${GITHUB_REF}/head:PR
     - name: checkout PR    
       run: git checkout PR
     - name: print body
