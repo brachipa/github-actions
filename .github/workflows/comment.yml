@@ -11,6 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       with:
-       ref: add-GOOGLE_APPLICATION_CREDENTIALS
+       ref: dummy
     - name: print body
       run: echo ${{ github.event.comment.body }}
