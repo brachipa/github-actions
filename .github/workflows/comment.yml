@@ -10,9 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: checkout PR 
-      run: echo ${{ github.event.html_url }}
+      with:
+       ref: add-GOOGLE_APPLICATION_CREDENTIALS
     - name: print body
       run: echo ${{ github.event.comment.body }}
