@@ -1,16 +1,23 @@
 name: issue-comment-CI-test 
 
 on:
-  issue_comment:
+  pull_request_review_comment:
+#   issue_comment:
+
     types: [created]
 jobs:
-  build:
-
+  ci:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-      with:
-       ref: add-GOOGLE_APPLICATION_CREDENTIALS
-    - name: print body
-      run: echo ${{ github.event.comment.body }}
+      - uses: khan/pull-request-comment-trigger@master
+        id: check
+        with:
+          trigger: 'ci'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      - run: 'echo Found it!'
+        if: steps.check.outputs.triggered == 'true'
+     
+      - uses: actions/checkout@v1 
+      - run: 'echo run' 
