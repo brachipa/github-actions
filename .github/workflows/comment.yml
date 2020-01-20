@@ -18,5 +18,5 @@ jobs:
         if: steps.check.outputs.triggered == 'true'
      
       - uses: actions/checkout@v1 
-      - run: 'run' 
+      - run: 'echo run' 
 
